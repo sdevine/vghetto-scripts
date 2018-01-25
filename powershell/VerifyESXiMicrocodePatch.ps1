@@ -139,7 +139,7 @@ Function Verify-ESXiMicrocodePatch {
     $intelSightingsMicrocodeVersion = @("0x00000023", "0x0000042A", "0x0000003B", "0x00000010", "0x0000001B", "0x0B000025", "0x0200003A", "0x07000011", "0x000000C2", "0x0000007C")
 
     # Remote SSH commands for retrieving current ESXi host microcode version
-    $plinkoptions = "-ssh -pw $ESXiPassword"
+    $plinkoptions = "-ssh -pw " + '"' + $ESXiPassword + '"'
     $cmd = "vsish -e cat /hardware/cpu/cpuList/0 | grep `'Current Revision:`'"
     $remoteCommand = '"' + $cmd + '"'
 
